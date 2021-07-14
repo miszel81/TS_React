@@ -7,7 +7,7 @@ let nothing: null = null;
 let now: Date = new Date();
 
 //Array
-let colors: string[] = ['red', 'green', 'blue'];
+// let colors: string[] = ['red', 'green', 'blue'];
 let numbers: number[] = [1, 2, 3];
 let truths: boolean[] = [true, false];
 
@@ -31,3 +31,24 @@ const logNumber: (i: number) => void = (i: number) => {
 
 const json = '{"x": 10, "y": 2}';
 const coor: { x: number; y: number } = JSON.parse(json);
+
+//2 when we declare a variable on one line and initialize it latter
+//exapmle changed to work testsing
+let colors = [{ color: 'red' }, { color: 'green' }, { color: 'blue' }];
+
+const search = () => {
+  for (let i = 0; i < colors.length; i++) {
+    if (colors[i].color === 'green') {
+      console.log(colors[i]);
+    }
+  }
+};
+search();
+
+//3 when we want a variable that type cannot be inferred correctly
+
+let number = [-10, -1, 2];
+let numberAboveZero: boolean | number = false;
+for (let i = 0; i < number.length; i++) {
+  numberAboveZero = number[i];
+}
