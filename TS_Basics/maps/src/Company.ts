@@ -1,4 +1,4 @@
-import faker from "faker";
+import faker from 'faker';
 
 export class Company {
   companyName: string;
@@ -15,5 +15,8 @@ export class Company {
       lat: parseFloat(faker.address.latitude()),
       lng: parseFloat(faker.address.longitude()),
     };
+  }
+  markerContent(): string {
+    return 'BOLA';
   }
 }

@@ -137,12 +137,20 @@ var CustomMap = function () {
   }
 
   CustomMap.prototype.addMarker = function (mappable) {
-    new google.maps.Marker({
+    var _this = this;
+
+    var marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.lng
       }
+    });
+    var infoWindow = new google.maps.InfoWindow({
+      content: mappable.markerContent()
+    });
+    marker.addListener('click', function () {
+      infoWindow.open(_this.googleMap, marker);
     });
   };
 
@@ -136926,6 +136934,10 @@ var User = function () {
     };
   }
 
+  User.prototype.markerContent = function () {
+    return 'HOLA';
+  };
+
   return User;
 }();
 
@@ -136956,6 +136968,10 @@ var Company = function () {
     };
   }
 
+  Company.prototype.markerContent = function () {
+    return 'BOLA';
+  };
+
   return Company;
 }();
 
@@ -136975,10 +136991,10 @@ var Company_1 = require("./Company");
 
 var user = new User_1.User();
 var company = new Company_1.Company();
-var customMap = new CustomMap_1.CustomMap("map");
+var customMap = new CustomMap_1.CustomMap('map');
 customMap.addMarker(user);
 customMap.addMarker(company);
-},{"./CustomMap":"src/CustomMap.ts","./User":"src/User.ts","./Company":"src/Company.ts"}],"../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./CustomMap":"src/CustomMap.ts","./User":"src/User.ts","./Company":"src/Company.ts"}],"../../../../../../../.nvm/versions/node/v14.17.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -137006,7 +137022,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58876" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50984" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -137182,5 +137198,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.ts"], null)
+},{}]},{},["../../../../../../../.nvm/versions/node/v14.17.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.ts"], null)
 //# sourceMappingURL=/src.f10117fe.js.map
